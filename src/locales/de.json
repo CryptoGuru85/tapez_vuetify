@@ -1,0 +1,552 @@
+{
+  "app": {
+    "name": "tapez.eu",
+    "slogan": "Your music for free",
+    "copyright": "© {year} tapez.eu"
+  },
+  "common": {
+    "name": "Name",
+    "date": "Datum",
+    "ip": "IP",
+    "new": "neu",
+    "create": "erstellen",
+    "confirm": "zustimmen",
+    "cancel": "abbrechen",
+    "delete": "löschen",
+    "save": "speichern",
+    "actions": "Aktionen",
+    "anonymous": "anonym",
+    "hyperlink": "Link",
+    "login": "anmelden",
+    "logout": "abmelden",
+    "register": "registrieren",
+    "edit": "bearbeiten",
+    "next": "weiter",
+    "previous": "zurück",
+    "delete_confirm": "möchtest du {item} wirklich löschen?"
+  },
+  "model": {
+    "user": {
+      "_name": "Benutzer",
+      "username": "Benutzername | Benutzernamen",
+      "bans": "Bans",
+      "role": {
+        "_name": "Rolle | Rollen",
+        "_choice": "@:model.user.role.ANONYMOUS | @:model.user.role.USER | @:model.user.role.MODERATOR | @:model.user.role.ADMIN",
+        "ANONYMOUS": "Anonym",
+        "USER": "Benutzer",
+        "MODERATOR": "Moderator",
+        "ADMIN": "Admin"
+      },
+      "firstname": "Vorname | Vornamen",
+      "lastname": "Nachname | Nachnamen",
+      "avatar": "Profilbild | Profilbilder",
+      "status": {
+        "_name": "Status",
+        "_choice": "@:model.user.status.DEFAULT | @:model.user.status.BANNED",
+        "DEFAULT": "frei",
+        "BANNED": "gebannt"
+      },
+      "legacy": "Altaccount | Altaccounts",
+      "email": "E-Mail | E-Mails",
+      "password": "Passwort | Passwörter",
+      "artists": "@:model.artist._name",
+      "display_name": "@:model.user.name"
+    },
+    "artist": {
+      "_name": "Künstler",
+      "name": "Name | Namen",
+      "user": "@:model.user._name",
+      "active_since": "aktiv seit",
+      "main_genre": "Hauptgenre | Hauptgenres",
+      "city": "Stadt | Städte",
+      "country": "Land | Länder",
+      "tapes": "Tapes",
+      "about": "Beschreibung",
+      "avatar": "Profilbild",
+      "banner": "Banner",
+      "social_media": {
+        "_name": "Social Media",
+        "facebook": "Facebook",
+        "instagram": "Instagram",
+        "soundcloud": "Soundcloud",
+        "twitter": "Twitter",
+        "homepage": "Webseite"
+      },
+      "display_name": "@:model.artist.name"
+    },
+    "comment": {
+      "_name": "keine Kommentare | Kommentar | {count} Kommentare",
+      "by": "von",
+      "by_model": "Typ",
+      "content": "Kommentar",
+      "display_name": "@:common.name"
+    },
+    "report": {
+      "_name": "Meldung | Meldungen",
+      "reason": {
+        "_name": "Begründung",
+        "_choice": "nicht angegeben | @:model.report.reason.COPYRIGHT_MATERIAL | @:model.report.reason.COPYRIGHT_CLAIM | @:model.report.reason.INAPPROPRIATE_CONTENT | @:model.report.reason.HATE_SPEECH | @:model.report.reason.SPAM | @:model.report.reason.OTHER",
+        "COPYRIGHT_MATERIAL": "Urheberrechtsverletzung",
+        "COPYRIGHT_CLAIM": "Verletzung am eigenen Recht",
+        "INAPPROPRIATE_CONTENT": "unpassender Inhalt",
+        "HATE_SPEECH": "Hatespeech",
+        "SPAM": "Spam",
+        "OTHER": "anderer"
+      },
+      "status": {
+        "_name": "Status",
+        "_choice": "nicht angegeben | @:model.report.status.OPEN | @:model.report.status.APPROVED | @:model.report.status.REJCTED",
+        "PENDING": "offen",
+        "APPROVED": "bestätigt",
+        "REJECTED": "abgelehnt"
+      },
+      "date": "@common:date",
+      "user": "@:model.user._name",
+      "ip": "IP",
+      "tape": "@:model.tape._name",
+      "tracks": "Tracks",
+      "description": "Begründung"
+    },
+    "statistics_entry": {
+      "_name": "Statistikeintrag | Statistikeinträge",
+      "date": "@:common.date",
+      "user": "@:model.user._name",
+      "for": "für",
+      "for_model": {
+        "_name": "Dokument",
+        "Tape": "@:model.tape._name",
+        "Track": "@:model.track._name"
+      },
+      "ip": "IP",
+      "owner": "@:model.user._name",
+      "type": {
+        "_name": "Art",
+        "view": "View | Views",
+        "download": "Download | Downloads",
+        "play": "Play | Plays"
+      }
+    },
+    "track": {
+      "_name": "Track | Tracks",
+      "title": "Titel",
+      "alias": "Alias",
+      "tape": "@:model.tape._name",
+      "length": "Länge",
+      "track_path": "Dateipfad",
+      "user": "@:model.user._name",
+      "plays": "Plays",
+      "statistics": "Statistiken",
+      "ratings": "Bewertungen",
+      "pcm": "PCM",
+      "rating": "Bewertung"
+    },
+    "tape": {
+      "_name": "Tape | Tapes",
+      "title": "Titel",
+      "artist": "@:model.artist._name",
+      "user": "@:model.user._name",
+      "alias": "Alias",
+      "cover": "Cover",
+      "highlighted": "hervorgehoben",
+      "locked": "gesperrt",
+      "locks": {
+        "_name": "Sperren",
+        "date": "@:common.date",
+        "byUser": "gesperrt durch",
+        "reason": "Begründung"
+      },
+      "reports": "Meldungen",
+      "status": {
+        "_name": "Status",
+        "choice": "nicht angegeben | @:model.tape.status.OK | @:model.tape.status.PROCESSING",
+        "OK": "OK",
+        "PROCESSING": "in Verarbeitung"
+      },
+      "bitrate": "Bitrate",
+      "archive_path": "Archivpfad",
+      "genre": "@:model.genre._name",
+      "subgenre": "Subgenre",
+      "description": "Beschreibung",
+      "tracks": "Tracks",
+      "comments": "Kommentare",
+      "year": "Jahr",
+      "views": "Views",
+      "downloads": "Downloads",
+      "statistics": "Statistiken",
+      "language": "Sprache",
+      "search_language": "Suchsprache",
+      "ratings": "Bewertungen",
+      "rating": "Bewertung"
+    },
+    "genre": {
+      "_name": "Genre | Genres",
+      "name": "Name",
+      "id3_id": "ID3-ID",
+      "color": "Farbe"
+    }
+  },
+  "component": {
+    "ajax_error": {
+      "snackbar_text": "Fehler bei der Anfrage: {message}",
+      "ajax_error_snackbar": {
+        "message_server_error": "Der Server hat einen Fehler zurückgegeben.",
+        "message_not_found": "Die Ressource wurde nicht gefunden.",
+        "message_timeout": "Der Server antwortet nicht.",
+        "message_unknown_error": "Unbekannter Fehler."
+      }
+    },
+    "document_toplist": {
+      "no_data_available": "Keine Daten verfügbar"
+    },
+    "genre_chip": {
+      "unknown_genre": "unbekannt"
+    },
+    "genre_table": {
+      "text_action_header": "@:common.actions",
+      "columns": {
+        "user": {
+          "anonymous_user": "@:common.anonymous"
+        },
+        "tracks": {
+          "no_tracks": "keine"
+        }
+      },
+      "action_new_genre": "@:common.new",
+      "action_discard_item": "@:common.cancel",
+      "action_save_item": "@:common.save",
+      "action_discard_deletion": "@:common.cancel",
+      "action_delete_item": "@:common.delete"
+    },
+    "comment_list": {
+      "comment_input_placeholder": "Kommentar schreiben",
+      "need_to_login_text": "{action}, um Kommentare zu schreiben",
+      "action_login": "Einloggen"
+    },
+    "image_uploader": {
+      "text_dropzone_placeholder": "Bild hier herziehen oder klicken"
+    },
+    "navigation_drawer": {
+      "text_title": "@:app.name",
+      "text_subtitle": "@:app.slogan"
+    },
+    "report_table": {
+      "action_discard_item": "@:common.cancel",
+      "action_save_item": "@:common.save",
+      "action_discard_deletion": "@:common.cancel",
+      "action_delete_item": "@:common.delete",
+      "filter_status_all": "alle",
+      "columns": {
+        "date": "@:common.date"
+      },
+      "_columns": {
+        "actions": "@:common.actions"
+      }
+    },
+    "tape_cover": {
+      "text_no_image": ":("
+    },
+    "tape_table": {
+      "action_discard_item": "@:common.cancel",
+      "action_save_item": "@:common.save",
+      "action_discard_deletion": "@:common.cancel",
+      "action_delete_item": "@:common.delete",
+      "filter_status_all": "alle",
+      "columns": {
+        "date": "@:common.date",
+        "link": "@:common.hyperlink",
+        "cover": "@:model.tape.cover",
+        "title": "@:model.tape.title",
+        "artist": "@:model.tape.artist",
+        "views": "@:model.tape.views",
+        "downloads": "@:model.tape.downloads",
+        "year": "@:model.tape.year",
+        "comments": "@:model.tape.comments",
+        "rating": "@:model.tape.rating",
+        "actions": "@:common.actions"
+      },
+      "_columns": {
+        "actions": "@:common.actions"
+      },
+      "action_new_tape": "@:common.new"
+    },
+    "user_avatar": {
+      "label_unknown_initials": "??"
+    },
+    "user_table": {
+      "action_new_item": "@:common.new",
+      "action_discard_item": "@:common.cancel",
+      "action_save_item": "@:common.save",
+      "action_discard_deletion": "@:common.cancel",
+      "action_delete_item": "@:common.delete",
+      "filter_status_all": "alle",
+      "columns": {
+        "avatar": "@:model.user.avatar",
+        "legacy": "alt",
+        "role": "@:model.user.role._name",
+        "status": "@:model.user.status._name",
+        "user": "@:model.user._name",
+        "email": "@:model.user.email",
+        "firstname": "@:model.user.firstname",
+        "lastname": "@:model.user.lastname",
+        "actions": "@:common.actions"
+      }
+    },
+    "user_activity_metrics_chart": {
+      "label_views": "@:model.statistics_entry.type.view",
+      "label_downloads": "@:model.statistics_entry.type.download",
+      "label_play": "@:model.statistics_entry.type.play"
+    },
+    "user_drawer": {
+      "action_submit_tape": "Tape einreichen",
+      "label_user_info": "Persönliche Daten",
+      "label_user_tapes": "meine Tapes",
+      "action_new_artist": "@:common.new",
+      "action_logout": "@:common.logout",
+      "label_acp": "Admin"
+    },
+    "tape_card_row": {
+      "message_error_loading_data": "Fehler beim laden"
+    },
+    "tape_timeline": {
+      "message_no_tapes": "Bislang noch nichts vorhanden"
+    }
+  },
+  "view": {
+    "404": {
+      "title": "404",
+      "subtitle": "wir konnten die angegebene Ressource nicht finden"
+    },
+    "acp": {
+      "dashboard": {
+        "heading_statistics": "Statistiken",
+        "title_metrics_snack_views": "@:model.statistics_entry.type.view",
+        "title_metrics_snack_downloads": "@:model.statistics_entry.type.download",
+        "title_metrics_snack_plays": "@:model.statistics_entry.type.play",
+        "title_user_activity_metrics_chart": "Statistiken",
+        "title_top_views": "Meistgesehen",
+        "title_top_downloads": "Meiste Downloads",
+        "title_top_plays": "Meistgehört",
+        "filter_date_range_24h": "24 Stunden",
+        "filter_date_range_27d": "7 Tage",
+        "filter_date_range_4w": "4 Wochen"
+      }
+    },
+    "about": {
+      "title": "Über"
+    },
+    "access_denied": {
+      "title": "Zugriff verweigert",
+      "subtitle": "du hast nicht die nötigen Berechtigungen, um auf diese Seite zuzugreifen"
+    },
+    "artist_profile": {
+      "title_banner_upload": "Banner ändern",
+      "action_upload_banner": "@:common.save",
+      "action_discard_banner": "@:common.cancel",
+      "title_avatar_upload": "Avatar ändern",
+      "action_save_avatar": "@:common.save",
+      "action_discard_avatar": "@:common.cancel",
+      "label_active_since": "@:model.artist.active_since",
+      "label_active_origin": "Herkunft",
+      "text_origin_format_with_city": "{city}, {country}",
+      "label_main_genre": "@:model.artist.main_genre",
+      "label_about": "@:model.artist.about",
+      "title_edit_profile": "Profil bearbeiten",
+      "action_save_profile": "@:common.save",
+      "action_cancel_edit": "@:common.cancel",
+      "title_discography": "Diskografie",
+      "title_artist_detail": "Details",
+      "title": "Künstlerprofil"
+    },
+    "artist_profile_creation": {
+      "title_max_artist_count_reached": "Du hast die maximale Anzahl an Künstlerprofilen erreicht",
+      "subtitle_max_artist_count_reached": "Lösche eines deiner Profile oder lade dein Tape über ein betehendes Profil hoch.",
+      "title_create_artist_profile": "Künstlerprofil erstellen",
+      "subtitle_create_artist_profile": "mit einem Künstlerprofil kannst du Tapes hochladen und als Künstler kommentieren",
+      "action_create_artist_profile": "Künstlerprofil erstellen",
+      "title_profile_created": "Willkommen dabei",
+      "subtitle_profile_created": "Du kannst jetz als {name} Tapes hochladen",
+      "action_upload_tape": "Tape hochladen",
+      "title": "Künstlerprofil erstellen"
+    },
+    "home": {
+      "title_greeting": "Willkommen auf Tapez.eu",
+      "subtitle_greeting": "Hier findest du eine kostenlose Möglichkeit, deine Alben, Mixtapes oder EPs zu veröffentlichen. Schnelle Downloadgeschwindigkeiten, viele Statistiken und komfortable Bedienung gibts umsonst dazu.",
+      "label_newest_tapes": "Neueste Tapes",
+      "label_most_downloaded_tapes": "Am meisten heruntergeladen",
+      "label_most_viewed_tapes": "Am meisten angesehen",
+      "title_bottom_sheet": "Auf tapez.eu kannst du gratis deine Mixtapes hosten",
+      "subtitle_bottom_sheet": "Lorem ipsum blabla",
+      "action_upload_tape": "Tape hochladen",
+      "message_login_failed": "Login fehlgeschlagen",
+      "title_recommended": "Empfohlen",
+      "title": "Tapez.eu"
+    },
+    "login": {
+      "title_login": "Anmelden",
+      "action_login": "@:common.login",
+      "action_register": "@:common.register",
+      "message_login_failed": "Anmeldung fehlgeschlagen: {reason}",
+      "subtitle_login": "melde dich mit deinem Tapez.eu-Account an",
+      "action_password_reset": "Passwort vergessen?",
+      "action_upgrade_legacy_account": "Ich besitze einen alten Tapez.eu-Account",
+      "title": "Anmelden",
+      "message_fail_reason_banned": "Du wurdest gebannt",
+      "message_fail_reason_unauthorized": "Benutzername oder Passwort falsch",
+      "message_fail_unknown": "Unbekannter Grund"
+    },
+    "register": {
+      "title": "Registrierung",
+      "action_register": "@:common.register",
+      "action_reset": "zurücksetzen",
+      "subtitle": "Erstelle dir jetzt einen Account für Tapez.eu."
+    },
+    "server_error": {
+      "subtitle": "Der Server hat einen Fehler zurückgegeben"
+    },
+    "tape_detail": {
+      "subtitle_tape_locked": "Dieses Tape ist gesperrt",
+      "message_tape_processing": "Dieses Tape wird aktuell noch von unserem System verarbeitet. Es stehen eventuell nicht alle Funktionen zur Verfügung.",
+      "message_tape_locked": "Dieses Tape wurde gesperrt und ist für andere Besucher nicht einsehbar. Grund: {reason}",
+      "action_submit_report": "melden",
+      "action_discard_report": "@:common.cancel",
+      "action_edit_meta": "@:common.edit",
+      "title_edit_tape": "Tape bearbeiten",
+      "action_save_tape_edit": "@:common.save",
+      "action_discard_tape_edit": "@:common.cancel",
+      "title_edit_tracks": "Tracks bearbeiten",
+      "action_save_track_edit": "@:common.save",
+      "action_discard_track_edit": "@:common.cancel",
+      "label_other_tapes_by_this_artist": "andere Tapes von diesem Künstler",
+      "action_download": "Download",
+      "title_track_list": "Trackliste",
+      "title": "Tapedetails"
+    },
+    "tape_list": {
+      "placeholder_search": "Suchbegriff",
+      "label_sorting": "Sortieren nach",
+      "label_genre": "Genre",
+      "text_result_count": "kein Ergebnis | 1 Ergebnis | {count} Ergebnisse",
+      "text_no_results": "Wir haben nichts gefunden :(",
+      "filter_order_by_date_asc": "Datum (aufsteigend)",
+      "filter_order_by_date_desc": "Datum (absteigend)",
+      "filter_order_by_rating_asc": "Bewertung (aufsteigend)",
+      "filter_order_by_rating_desc": "Bewertung (absteigend)",
+      "filter_order_by_date_views_asc": "Ansichten (aufsteigend)",
+      "filter_order_by_views_desc": "Ansichten (absteigend)",
+      "title": "Browse"
+    },
+    "tape_upload": {
+      "title_no_artist_profile_yet": "Du hast noch kein Künstlerprofil",
+      "subtitle_no_artist_profile_yet": "erstelle dir jetzt eins, um Tapes hochladen zu können",
+      "action_create_artist_profile": "Künstlerprofil erstellen",
+      "text_upload_progress": "Dein Tape steht in Kürze bereit",
+      "title_upload_api_error": "Da ging was schief",
+      "subtitle_upload_api_error": "Beim hochladen deines Tapes hat etwas nicht funktioniert.",
+      "action_try_again": "nochmal versuchen",
+      "label_step1_stepper": "Metadaten",
+      "label_step2_stepper": "Tracks",
+      "label_step3_stepper": "Upload",
+      "title_step1": "Metadaten",
+      "subtitle_step1": "Erzähl uns ein bisschen was über dein Tape",
+      "action_goto_step_2": "@:common.next",
+      "title_step2": "Tracks",
+      "subtitle_step2": "Wähle aus, welche Tracks du hochladen möchtest",
+      "text_dropzone_drop_files_here": "Dateien hier ablegen",
+      "action_add_files": "Datein hinzufügen",
+      "action_backto_step_1": "@:common.previous",
+      "action_goto_step_3": "@:common.next",
+      "title_step3": "Upload",
+      "subtitle_step3": "Überprüfe deine Angaben, bevor du dein Tape hochlädst",
+      "action_backto_step_2": "@:common.previous",
+      "action_upload": "hochladen",
+      "title": "Tape einreichen"
+    },
+    "timeout_error": {
+      "title": "Timeout!",
+      "subtitle": "Unser Server antwortet nicht. Bitte probiere es später erneut."
+    },
+    "user_info": {
+      "title": "Benutzerdaten",
+      "title_user_profile": "Persönliche Daten",
+      "subtitle_user_profile": "Hier kannst du deine persönlichen Daten bearbeiten",
+      "title_user_avatar": "@:model.user.avatar",
+      "subtitle_user_avatar": "auswählen",
+      "title_name": "Name",
+      "action_save_name": "@:common.save",
+      "title_email": "E-Mail",
+      "action_save_email": "@:common.save",
+      "title_password": "Passwort",
+      "label_repeat_password": "Passwort wiederholen",
+      "action_save_password": "@:common.save",
+      "action_discard_name": "@:common.cancel",
+      "action_discard_email": "@:common.cancel",
+      "action_discard_password": "@:common.cancel"
+    },
+    "user_avatar_action_save_avatar": "@:common.save",
+    "server_Error": {
+      "title": "Fehler"
+    },
+    "user_tapes": {
+      "title": "Meine Tapes"
+    },
+    "user_avatar_action_discard_avatar": "@:common.cancel"
+  },
+  "form": {
+    "report": {
+      "title": "Tape melden",
+      "subtitle": "Dieses Tape...",
+      "text_reasons": {
+        "_choice": "unbekannt | @:form.report.text_reasons.COPYRIGHT_MATERIAL | @:form.report.text_reasons.COPYRIGHT_CLAIM | @:form.report.text_reasons.INAPPROPRIATE_CONTENT | @:form.report.text_reasons.HATE_SPEECH | @:form.report.text_reasons.SPAM | @:form.report.text_reasons.OTHER",
+        "COPYRIGHT_MATERIAL": "enthält urheberrechtlich geschütztes Material",
+        "COPYRIGHT_CLAIM": "verletzt meine Rechte",
+        "INAPPROPRIATE_CONTENT": "enthält unangemessenen Inhalt",
+        "HATE_SPEECH": "enthält volksverhetzende oder Hass schürende Inhalte",
+        "SPAM": "enthält Spam oder Werbung",
+        "OTHER": "anderer Grund (bitte unten ausführen)"
+      },
+      "tooltip_reasons": {
+        "_choice": "unbekannt | @:form.report.tooltip_reasons.COPYRIGHT_MATERIAL | @:form.report.tooltip_reasons.COPYRIGHT_CLAIM | @:form.report.tooltip_reasons.INAPPROPRIATE_CONTENT | @:form.report.tooltip_reasons.HATE_SPEECH | @:form.report.tooltip_reasons.SPAM | @:form.report.tooltip_reasons.OTHER",
+        "COPYRIGHT_MATERIAL": "Das Tape enthält Musik von anderen Künstlern, urheberrechtlich geschützte Samples oder anderweitig geschützten Inhalt",
+        "COPYRIGHT_CLAIM": "Das Tape enthält Inhalt, den du kreiert hast und mit dessen Verbreitung du nicht einverstanden bist oder verletzt deinen Datenschutz (nennt z.b. deinen Namen und Adresse)",
+        "INAPPROPRIATE_CONTENT": "Das tape enthält keine Musik, sondern gesprochenes Wort, willkürliche Klänge oder kurze Samples",
+        "HATE_SPEECH": "Das Tape enthält rassistische, islamistische oder anderweitig extremistische Inhalte oder fordert zu Verbrechen oder Gewalttaten auf",
+        "SPAM": "Das Tape enthält Spam oder wirbt für ein Produkt oder eine Dienstleistung",
+        "OTHER": "Der Meldegrund fällt in keine der oben genannten Kategorien, du bist aber dennoch der Meinung, dass wir uns den Inhalt genauer anschauen sollten"
+      },
+      "title_reason": "dieses Tape..."
+    },
+    "register": {
+      "label_repeat_password": "Passwort wiederholen",
+      "error_username_exists": "Benutzer existiert bereits",
+      "error_email_exists": "ein Benutzer mit diese E-Mail existiert bereits",
+      "hint_password": "muss mindestens 8 Zeichen lang sein sowie einen Großbuchstaben, eine Zahl und ein Sonderzeichen enthalten",
+      "hint_username": "muss mindestens 4 Zeichen lang sein und darf nur Buchstaben und Zahlen enthalten",
+      "hint_email": "du erhälst von uns einen BEstätigungslink an diese Adresse"
+    },
+    "tape_metadata": {
+      "hint_upload": "erlaubte Dateitypen: JPEG, PNG, TIFF"
+    }
+  },
+  "navigation": {
+    "browse": {
+      "_name": "Browse"
+    },
+    "login": "@:common.login"
+  },
+  "validation_rules": {
+    "required": "Pflichtfeld",
+    "password_min_chars": "Passwort muss mindestens 8 Zeichen lang sein",
+    "password_min_1_upper": "Passwort muss mindestens einen Großbuchstaben enthalten",
+    "password_min_1_special": "Passwort muss mindestens ein Sonderzeichen enthalten",
+    "password_min_1_digit": "Passwort muss mindestens eine Zahl enthalten",
+    "passwords_dont_match": "Passwörter stimmen nicht überein",
+    "min_x_chars": "muss mindestens {min} Zeichen lang sein",
+    "max_x_chars": "darf höchstens {max} Zeichen lang sein",
+    "valid_year": "muss zwischen 1900 und {year} liegen",
+    "min_x_files": "Bitte wähle mindestens {min} Dateien",
+    "max_x_files": "höchstens {max} Dateien",
+    "alphanumeric": "darf nur Buchstaben und Zahlen enthalten",
+    "email": "ungültige E-Mail"
+  }
+}
